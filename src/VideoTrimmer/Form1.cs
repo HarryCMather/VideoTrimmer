@@ -1,26 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using VideoTrimmer.Statistics;
 
 namespace VideoTrimmer
 {
     public partial class Form1 : Form
     {
-        private readonly Statistics _statistics;
+        private readonly BitrateCalculator _bitrateCalculator;
 
         private double? startDurationSeconds;
         private double? endDurationSeconds;
 
-        public Form1(Statistics statistics)
+        public Form1(BitrateCalculator bitrateCalculator)
         {
-            _statistics = statistics;
+            _bitrateCalculator = bitrateCalculator;
             InitializeComponent();
         }
 
@@ -44,11 +38,8 @@ namespace VideoTrimmer
 
         private void compressAndTrimButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($@"{_statistics.CalculateTotalBitrate(10.0, 128)}");
-
             if (startDurationSeconds == null || endDurationSeconds == null) return;
 
-            MessageBox.Show($@"Start: {startDurationSeconds}, End: {endDurationSeconds}");
         }
     }
 }

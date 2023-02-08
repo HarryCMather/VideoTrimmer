@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using VideoTrimmer.Statistics;
 
 namespace VideoTrimmer
 {
@@ -14,11 +12,11 @@ namespace VideoTrimmer
         [STAThread]
         static void Main()
         {
-            Statistics statistics = new Statistics();
+            BitrateCalculator bitrateCalculator = new BitrateCalculator();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(statistics));
+            Application.Run(new Form1(bitrateCalculator));
         }
     }
 }

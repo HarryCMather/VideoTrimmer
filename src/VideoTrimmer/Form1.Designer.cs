@@ -47,14 +47,14 @@
             this.videoPlayer.Location = new System.Drawing.Point(12, 41);
             this.videoPlayer.Name = "videoPlayer";
             this.videoPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("videoPlayer.OcxState")));
-            this.videoPlayer.Size = new System.Drawing.Size(1178, 642);
+            this.videoPlayer.Size = new System.Drawing.Size(1028, 642);
             this.videoPlayer.TabIndex = 0;
             // 
             // chooseVideoButton
             // 
             this.chooseVideoButton.Location = new System.Drawing.Point(12, 12);
             this.chooseVideoButton.Name = "chooseVideoButton";
-            this.chooseVideoButton.Size = new System.Drawing.Size(1178, 23);
+            this.chooseVideoButton.Size = new System.Drawing.Size(1028, 23);
             this.chooseVideoButton.TabIndex = 1;
             this.chooseVideoButton.Text = "Choose Video";
             this.chooseVideoButton.UseVisualStyleBackColor = true;
@@ -81,7 +81,7 @@
             // 
             // endButton
             // 
-            this.endButton.Location = new System.Drawing.Point(1076, 689);
+            this.endButton.Location = new System.Drawing.Point(926, 689);
             this.endButton.Name = "endButton";
             this.endButton.Size = new System.Drawing.Size(114, 23);
             this.endButton.TabIndex = 4;
@@ -100,7 +100,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(988, 715);
+            this.label3.Location = new System.Drawing.Point(838, 715);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 13);
             this.label3.TabIndex = 6;
@@ -109,7 +109,7 @@
             // endDurationLabel
             // 
             this.endDurationLabel.AutoSize = true;
-            this.endDurationLabel.Location = new System.Drawing.Point(1123, 715);
+            this.endDurationLabel.Location = new System.Drawing.Point(973, 715);
             this.endDurationLabel.Name = "endDurationLabel";
             this.endDurationLabel.Size = new System.Drawing.Size(0, 13);
             this.endDurationLabel.TabIndex = 7;
@@ -118,7 +118,7 @@
             // 
             this.compressAndTrimButton.Location = new System.Drawing.Point(12, 733);
             this.compressAndTrimButton.Name = "compressAndTrimButton";
-            this.compressAndTrimButton.Size = new System.Drawing.Size(1178, 23);
+            this.compressAndTrimButton.Size = new System.Drawing.Size(1028, 23);
             this.compressAndTrimButton.TabIndex = 8;
             this.compressAndTrimButton.Text = "Compress and Trim Clip";
             this.compressAndTrimButton.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1202, 769);
+            this.ClientSize = new System.Drawing.Size(1053, 769);
             this.Controls.Add(this.compressAndTrimButton);
             this.Controls.Add(this.endDurationLabel);
             this.Controls.Add(this.label3);
