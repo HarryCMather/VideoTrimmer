@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoTrimmer", "VideoTrimmer\VideoTrimmer.csproj", "{B84A7FB3-1191-4D8E-A074-EA8676994C77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B84A7FB3-1191-4D8E-A074-EA8676994C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B84A7FB3-1191-4D8E-A074-EA8676994C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B84A7FB3-1191-4D8E-A074-EA8676994C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B84A7FB3-1191-4D8E-A074-EA8676994C77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FFE2CFD8-A677-4772-94DE-6CC8D29F6C77}
+	EndGlobalSection
+EndGlobal
