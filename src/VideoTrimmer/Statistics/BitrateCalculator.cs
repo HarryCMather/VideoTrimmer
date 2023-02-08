@@ -2,7 +2,7 @@
 
 namespace VideoTrimmer.Statistics
 {
-    public class BitrateCalculator
+    public class BitrateCalculator : IBitrateCalculator
     {
         private const double MaxSizeMB = 7.5;
 

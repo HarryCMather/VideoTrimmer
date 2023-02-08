@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace VideoTrimmer.FileManagement
 {
-    public class FileValidator
+    public class FileValidator : IFileValidator
     {
         public string[] ValidFileTypes =
         {
