@@ -59,9 +59,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Statistics\BitrateCalculator.cs" />
+    <Compile Include="Statistics\Statistics.cs" />
     <Compile Include="FileManagement\FileValidator.cs" />
-    <Compile Include="Statistics\IBitrateCalculator.cs" />
+    <Compile Include="Statistics\IStatistics.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
