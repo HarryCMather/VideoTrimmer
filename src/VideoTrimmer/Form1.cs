@@ -18,7 +18,10 @@ namespace VideoTrimmer
         {
             _bitrateCalculator = bitrateCalculator;
             _fileValidator = fileValidator;
+
             InitializeComponent();
+
+            videoPlayer.settings.autoStart = false;
         }
 
         private void chooseVideoButton_Click(object sender, EventArgs e)
@@ -37,6 +40,7 @@ namespace VideoTrimmer
             }
 
             videoPlayer.URL = filePath;
+            videoPlayer.Ctlcontrols.pause();
 
             startButton.Enabled = true;
             startButton.Visible = true;
@@ -48,7 +52,7 @@ namespace VideoTrimmer
         private void startButton_Click(object sender, EventArgs e)
         {
             startDurationSeconds = videoPlayer.Ctlcontrols.currentPosition;
-            startDurationLabel.Text = Math.Round(startDurationSeconds.Value, 2, MidpointRounding.AwayFromZero).ToString(CultureInfo.InvariantCulture);
+            startDurationLabel.Text = $@"{Math.Round(startDurationSeconds.Value, 2, MidpointRounding.AwayFromZero).ToString(CultureInfo.InvariantCulture)} s";
 
             ValidateStartAndEndDuration();
         }
@@ -56,7 +60,7 @@ namespace VideoTrimmer
         private void endButton_Click(object sender, EventArgs e)
         {
             endDurationSeconds = videoPlayer.Ctlcontrols.currentPosition;
-            endDurationLabel.Text = Math.Round(endDurationSeconds.Value, 2, MidpointRounding.AwayFromZero).ToString(CultureInfo.InvariantCulture);
+            endDurationLabel.Text = $@"{Math.Round(endDurationSeconds.Value, 2, MidpointRounding.AwayFromZero).ToString(CultureInfo.InvariantCulture)} s";
 
             ValidateStartAndEndDuration();
         }

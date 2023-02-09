@@ -62,12 +62,14 @@
             // 
             // startButton
             // 
+            this.startButton.Enabled = false;
             this.startButton.Location = new System.Drawing.Point(12, 689);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(114, 23);
             this.startButton.TabIndex = 2;
             this.startButton.Text = "Start of Trimmed Clip";
             this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Visible = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // label1
@@ -81,12 +83,14 @@
             // 
             // endButton
             // 
+            this.endButton.Enabled = false;
             this.endButton.Location = new System.Drawing.Point(926, 689);
             this.endButton.Name = "endButton";
             this.endButton.Size = new System.Drawing.Size(114, 23);
             this.endButton.TabIndex = 4;
             this.endButton.Text = "End of Trimmed Clip";
             this.endButton.UseVisualStyleBackColor = true;
+            this.endButton.Visible = false;
             this.endButton.Click += new System.EventHandler(this.endButton_Click);
             // 
             // startDurationLabel
@@ -116,12 +120,14 @@
             // 
             // compressAndTrimButton
             // 
+            this.compressAndTrimButton.Enabled = false;
             this.compressAndTrimButton.Location = new System.Drawing.Point(12, 733);
             this.compressAndTrimButton.Name = "compressAndTrimButton";
             this.compressAndTrimButton.Size = new System.Drawing.Size(1028, 23);
             this.compressAndTrimButton.TabIndex = 8;
             this.compressAndTrimButton.Text = "Compress and Trim Clip";
             this.compressAndTrimButton.UseVisualStyleBackColor = true;
+            this.compressAndTrimButton.Visible = false;
             this.compressAndTrimButton.Click += new System.EventHandler(this.compressAndTrimButton_Click);
             // 
             // Form1
@@ -138,8 +144,10 @@
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.chooseVideoButton);
             this.Controls.Add(this.videoPlayer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.ShowIcon = false;
+            this.Text = "Video Trimmer";
             ((System.ComponentModel.ISupportInitialize)(this.videoPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
