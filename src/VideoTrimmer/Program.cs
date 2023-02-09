@@ -13,12 +13,12 @@ namespace VideoTrimmer
         [STAThread]
         static void Main()
         {
-            IBitrateCalculator bitrateCalculator = new BitrateCalculator();
+            IStatistics statistics = new Statistics.Statistics();
             IFileValidator fileValidator = new FileValidator();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(bitrateCalculator, fileValidator));
+            Application.Run(new Form1(statistics, fileValidator));
         }
     }
 }

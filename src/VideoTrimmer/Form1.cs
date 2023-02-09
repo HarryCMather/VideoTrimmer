@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
+using VideoTrimmer.ffMPEG;
 using VideoTrimmer.FileManagement;
 using VideoTrimmer.Statistics;
 
@@ -8,15 +9,16 @@ namespace VideoTrimmer
 {
     public partial class Form1 : Form
     {
-        private readonly IBitrateCalculator _bitrateCalculator;
+        private readonly IStatistics _statistics;
         private readonly IFileValidator _fileValidator;
 
         private double? startDurationSeconds;
         private double? endDurationSeconds;
+        private string filePath = string.Empty;
 
-        public Form1(IBitrateCalculator bitrateCalculator, IFileValidator fileValidator)
+        public Form1(IStatistics statistics, IFileValidator fileValidator)
         {
-            _bitrateCalculator = bitrateCalculator;
+            _statistics = statistics;
             _fileValidator = fileValidator;
 
             InitializeComponent();
@@ -26,8 +28,13 @@ namespace VideoTrimmer
 
         private void chooseVideoButton_Click(object sender, EventArgs e)
         {
-            // TODO: Replace this with a open file dialogue...
-            const string filePath = "C:\\Users\\harry\\Videos\\Nvidia Share\\Counter-strike  Global Offensive\\Counter-strike  Global Offensive 2023.02.08 - 19.29.36.82.DVR.mp4";
+            if (videoOpenFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                MessageBox.Show(@"Error: A valid file was not specified");
+                return;
+            }
+
+            filePath = videoOpenFileDialog.FileName;
 
             if (!_fileValidator.ValidateFile(filePath))
             {
@@ -51,16 +58,16 @@ namespace VideoTrimmer
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            startDurationSeconds = videoPlayer.Ctlcontrols.currentPosition;
-            startDurationLabel.Text = $@"{Math.Round(startDurationSeconds.Value, 2, MidpointRounding.AwayFromZero).ToString(CultureInfo.InvariantCulture)} s";
+            startDurationSeconds = Math.Round(videoPlayer.Ctlcontrols.currentPosition, 3, MidpointRounding.AwayFromZero);
+            startDurationLabel.Text = $@"{startDurationSeconds.Value.ToString(CultureInfo.InvariantCulture)} s";
 
             ValidateStartAndEndDuration();
         }
 
         private void endButton_Click(object sender, EventArgs e)
         {
-            endDurationSeconds = videoPlayer.Ctlcontrols.currentPosition;
-            endDurationLabel.Text = $@"{Math.Round(endDurationSeconds.Value, 2, MidpointRounding.AwayFromZero).ToString(CultureInfo.InvariantCulture)} s";
+            endDurationSeconds = Math.Round(videoPlayer.Ctlcontrols.currentPosition, 3, MidpointRounding.AwayFromZero);
+            endDurationLabel.Text = $@"{endDurationSeconds.Value.ToString(CultureInfo.InvariantCulture)} s";
 
             ValidateStartAndEndDuration();
         }
@@ -80,7 +87,13 @@ namespace VideoTrimmer
 
         private void compressAndTrimButton_Click(object sender, EventArgs e)
         {
+            // This will never be null, as the button will never be visible when null.
+            double duration = _statistics.CalculateDuration(startDurationSeconds.Value, endDurationSeconds.Value);
+            double videoBitrate = _statistics.CalculateTotalBitrate(duration, filePath);
 
+            (string startTimeStamp, string endTimeStamp) = _statistics.CalculateTimeStamps(startDurationSeconds.Value, endDurationSeconds.Value);
+
+            ffMPEGWrapper.CompressVideo(filePath, videoBitrate, startTimeStamp, endTimeStamp);
         }
     }
 }

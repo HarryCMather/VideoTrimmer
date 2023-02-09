@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.endDurationLabel = new System.Windows.Forms.Label();
             this.compressAndTrimButton = new System.Windows.Forms.Button();
+            this.videoOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.videoPlayer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,6 +131,10 @@
             this.compressAndTrimButton.Visible = false;
             this.compressAndTrimButton.Click += new System.EventHandler(this.compressAndTrimButton_Click);
             // 
+            // videoOpenFileDialog
+            // 
+            this.videoOpenFileDialog.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,6 +170,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label endDurationLabel;
         private System.Windows.Forms.Button compressAndTrimButton;
+        private System.Windows.Forms.OpenFileDialog videoOpenFileDialog;
     }
 }
 
