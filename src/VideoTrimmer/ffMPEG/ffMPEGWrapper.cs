@@ -44,22 +44,19 @@ namespace VideoTrimmer.ffMPEG
             string fileName = Path.GetFileName(inputFilePath);
             string extension = fileName.Replace(Path.GetFileNameWithoutExtension(inputFilePath), string.Empty);
 
-            string outputFilePath = $"{inputFilePath.Replace(fileName, $"{fileName}-Trimmed{extension}")}";
+            string outputFilePath = inputFilePath.Replace(fileName, $"{fileName}-Trimmed{extension}");
 
             MessageBox.Show(videoBitrate.ToString(CultureInfo.InvariantCulture));
 
             await Task.Run(() =>
             {
-                //string output = string.Empty;
-
                 ProcessStartInfo startInfo = new ProcessStartInfo()
                 {
                     FileName = "ffmpeg.exe",
-                    Arguments = $"-y -vsync passthrough -hwaccel cuda -i \"{inputFilePath}\" -ss {startTimeStamp} -to {endTimeStamp} -max_muxing_queue_size 9999 -pix_fmt yuv420p " +
-                                $"-c:v h264_nvenc -preset slow -tune hq -b:v {videoBitrate}K -bufsize 1M -maxrate {videoBitrate}K -qmin 0 -vf scale=\"1920:-1\" -c:a copy \"{outputFilePath}\"",
+                    Arguments = $"-y -vsync passthrough -hwaccel cuda -i \"{inputFilePath}\" -ss {startTimeStamp} -to {endTimeStamp} " +
+                                $"-max_muxing_queue_size 9999 -pix_fmt yuv420p -c:v h264_nvenc -preset slow -tune hq -b:v {videoBitrate}K " +
+                                $"-bufsize 1M -maxrate {videoBitrate}K -qmin 0 -vf scale=\"1920:-1\" -c:a copy \"{outputFilePath}\"",
                     UseShellExecute = false,
-                    //RedirectStandardOutput = true,
-                    //RedirectStandardError = true,
                     CreateNoWindow = false,
                     WindowStyle = ProcessWindowStyle.Normal
                 };
@@ -68,20 +65,7 @@ namespace VideoTrimmer.ffMPEG
                 {
                     process.StartInfo = startInfo;
                     process.Start();
-
-                    //using (StreamReader streamReader = process.StandardOutput)
-                    //{
-                    //    output += streamReader.ReadToEnd();
-                    //}
-
-                    //using (StreamReader streamReader = process.StandardError)
-                    //{
-                    //    output += streamReader.ReadToEnd();
-                    //}
-
                     process.WaitForExit();
-
-                    //MessageBox.Show(output);
                 }
             }).ConfigureAwait(false);
         }

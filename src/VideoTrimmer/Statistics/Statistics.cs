@@ -5,18 +5,18 @@ namespace VideoTrimmer.Statistics
 {
     public class Statistics : IStatistics
     {
-        private const double MaxSizeMB = 7.5;
+        private const double MaxSizeMB = 7.9;
 
         public double CalculateTotalBitrate(double trimmedVideoDurationSeconds, string filePath)
         {
             double audioBitrateKbps = ffMPEGWrapper.GetAudioBitrate(filePath);
             double availableVideoSizeMB = MaxSizeMB - CalculateAudioSize(trimmedVideoDurationSeconds, audioBitrateKbps);
-            return CalculateVideoBitrate(trimmedVideoDurationSeconds, availableVideoSizeMB) * 1000;
+            return CalculateVideoBitrate(trimmedVideoDurationSeconds, availableVideoSizeMB) * 1024.0;
         }
 
         private static double CalculateAudioSize(double trimmedVideoDurationSeconds, double audioBitrateKbps)
         {
-            return ((trimmedVideoDurationSeconds * audioBitrateKbps) / 8.0) / 1000.0;
+            return ((trimmedVideoDurationSeconds * audioBitrateKbps) / 8.0) / 1024.0;
         }
 
         private static double CalculateVideoBitrate(double trimmedVideoDurationSeconds, double availableVideoSizeMB)
