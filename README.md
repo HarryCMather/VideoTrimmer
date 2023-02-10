@@ -10,5 +10,7 @@ A tool for trimming and compressing clips, designed for use with Discord due to 
 - Potential bug fix: Output videos are often smaller than 7MB, smaller sizes resutls in lower quality.  Investigate whether anything can make this closer to the file size target.
 - Add a check for any hardware accelerated encoders with a software fallback option, rather than only supporting Nvidia GPUs.
 - Add the ability to specify a target file size other than 8MB.
-- Move some of the ffMPEG options as a choice on-screen to allow for better flexibility.
+- Move some of the ffMPEG options as a choice on-screen to allow for better flexibility, this could even be separated into 'Simple'/'Advanced'.
 - Further investigate .NET Core alternative video players for Windows Forms and re-write if needed. (easier to deal with, more functionality, better performance)
+- Create build pipeline, or host on website.
+- Add check for updates functionality.
